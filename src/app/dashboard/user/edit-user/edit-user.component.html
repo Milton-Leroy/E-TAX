@@ -1,0 +1,92 @@
+<div class="absolute inset-0 bg-opacity-100 z-10 w-full h-full backdrop-brightness-[.6] flex items-center justify-center">
+  <div class="w-[40%] h-[80%] mx-auto my-auto bg-white shadow rounded border flex flex-col">
+    <form class="w-full h-full mx-auto flex flex-col">
+      <!-- head top section -->
+      <div class="w-full h-[10%] mt-4 border-b-2 border-inputbg flex items-center gap-4">
+        <h1 class="ml-7 text-[18px] leading-[24px] font-semibold">Modification du compte utilisateur</h1>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" value="" class="sr-only peer">
+          <div class="relative w-11 h-6 bg-[#ff80a2] border-2 border-red-500
+              peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-gray-300 rounded-full
+              peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full
+              peer-checked:after:border-banner-blue after:content-[''] after:absolute after:top-[2px] after:start-[2px]
+              after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all
+              peer-checked:bg-[#00d68f] peer-checked:border-green-500 after:-ml-[2px] after:-mt-[1px]">
+          </div>
+          <span class="ms-2 text-[13px] leading-[24px] font-semibold">OTP DESACTIVÉ</span>
+        </label>
+      </div>
+      <!-- form body middle section -->
+      <div class="w-full h-[75%] mt-2 flex flex-col overflow-y-scroll scrollbar-thin scrollbar-track-white scrollbar-thumb-inputbg no-scrollbar-buttons">
+
+        <div class="flex flex-col w-[90%] mx-auto mt-2">
+          <label for="" class="text-xs text-[#8F9BB3] font-bold">Identifiant</label>
+          <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+            value="BCC001">
+        </div>
+        <div class="w-[90%] mx-auto mt-2 flex">
+          <div class="flex flex-col w-1/2 mr-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Nom(s)</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+              value="THOROUM">
+          </div>
+          <div class="flex flex-col w-1/2 ml-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Prénom(s)</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+              value="Dominique">
+          </div>
+        </div>
+        <div class="flex flex-col w-[90%] mx-auto mt-2">
+          <label for="" class="text-xs text-[#8F9BB3] font-bold">Fonction dans l'entreprise</label>
+          <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+            value="Superviseur plateforme e-tax">
+        </div>
+        <div class="w-[90%] mx-auto mt-2 flex">
+          <div class="flex flex-col w-1/2 mr-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Téléphone</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+              value="1122334554">
+          </div>
+          <div class="flex flex-col w-1/2 ml-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Email</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+              value="dthoroum@bcc-bank.com">
+          </div>
+        </div>
+        <div class="flex flex-col mt-2 w-[90%] mx-auto">
+          <label for="" class="text-xs text-[#8F9BB3] font-bold">Catégorie </label>
+          <select type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold">
+            <option disabled>Sélectionner une Catégorie</option>
+            <option value="">Administrateur</option>
+            <option value="">Consultant</option>
+            <option value="">Manager</option>
+          </select>
+        </div>
+        <div class="flex flex-col mt-2 w-[90%] mx-auto">
+          <label for="" class="text-xs text-[#8F9BB3] font-bold">Genre</label>
+          <div class="relative w-full">
+            <select type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold">
+              <option disabled>Sélectionner votre genre</option>
+              <option value="">HOMME</option>
+              <option value="">FEMME</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+      <!-- buttons bottom section -->
+      <div class="w-full h-[15%] flex items-center justify-center border-t-2 border-inputbg gap-10">
+        <button type="button" class="text-white bg-deeppink flex items-center gap-2 py-2.5 px-4 rounded text-[14px] leading-[16px]
+          font-bold hover:bg-opacity-80 transition duration-200 ease-in-out transform scale-100 hover:scale-95 group" (click)="onCancel()">
+          <i class="fa-solid fa-square-xmark text-base"></i>
+          <span>ANNULER</span>
+        </button>
+        <button type="submit" class="text-white bg-badgegreen flex items-center gap-2 py-2.5 px-4 rounded text-[14px] leading-[16px]
+          font-bold hover:bg-opacity-80 transition duration-200 ease-in-out transform scale-100 hover:scale-95 group">
+          <i class="fa-solid fa-check-double text-base"></i>
+          <span>MODIFIER</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

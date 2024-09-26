@@ -1,0 +1,118 @@
+<main class="w-[83.3vw] h-auto font-lato-regular">
+  <div class="w-[95%] h-full mx-auto">
+
+    <!-- heading 1st row -->
+    <h1 class="text-[#242b45] text-[18px] leading-[48px] font-bold flex gap-4 items-center mt-20">
+      <i class="fa-solid fa-arrow-left text-banner-blue text-2xl" (click)="redirectBack()"></i>
+      <span class="text-[26px] leading-[32px] font-bold">Validation de la transaction: 1725445622147166</span>
+    </h1>
+
+    <div class="w-full min-h-[520px] mt-4">
+      <div class="w-full h-full flex">
+        <div class="w-2/3 h-full mr-2 pb-5 bg-white rounded">
+        <div class="w-[95%] h-full my-4 mx-auto flex flex-col">
+          <!-- first card with with initie button -->
+          <div class="w-full h-1/2 flex rounded shadow">
+            <div class="w-2/3 my-8">
+
+              <div class="flex gap-2 px-4 items-center">
+                <div class="w-10 h-10 rounded-full bg-dashbody flex items-center justify-center text-banner-blue">
+                  <i class="fa-solid fa-user text-[16px] leading-[20px] font-normal"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[13px] leading-[20px] font-normal">Initiateur</span>
+                  <span class="text-[13px] leading-[20px] font-bold">SOSTHINE NGUEALBAYE</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mt-3">
+                <div class="flex gap-2 px-4 items-center">
+                  <div class="w-10 h-10 rounded-full bg-dashbody flex items-center justify-center text-banner-blue">
+                    <i class="fa-solid fa-user text-[16px] leading-[20px] font-normal"></i>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-[13px] leading-[20px] font-normal">Identifiant</span>
+                    <span class="text-[13px] leading-[20px] font-bold">DEMBE001</span>
+                  </div>
+                </div>
+                <button class="flex items-center gap-2 text-white bg-badgegreen text-xs font-bold px-4 py-2 rounded-md
+                  hover:opacity-75 transition duration-200 ease-in-out transform scale-100 hover:scale-90 mr-4">
+                  <i class="fa-solid fa-check"></i>
+                  <span class="uppercase"> Initiée </span>
+                </button>
+              </div>
+
+              <div class="flex gap-2 px-4 items-center mt-3">
+                <div class="w-10 h-10 rounded-full bg-dashbody flex items-center justify-center text-banner-blue">
+                  <i class="fa-regular fa-calendar text-[16px] leading-[20px] font-normal"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[13px] leading-[20px] font-normal">Date initiation</span>
+                  <span class="text-[13px] leading-[20px] font-bold">04/09/2024 à 11:27:02</span>
+                </div>
+              </div>
+
+            </div>
+            <button class="w-1/3 bg-[#e8ecef] flex items-center justify-center p-4">
+              <i class="fa-regular fa-square-check text-[#8f9bb3] text-[60px] leading-[60px] font-normal transition duration-200
+              transform scale-100 hover:scale-75 ease-in-out"></i>
+            </button>
+          </div>
+          <!-- end of card -->
+          <!-- second card with with payee button -->
+          <div class="w-full h-1/2 flex rounded shadow mt-8">
+            <div class="w-2/3 my-8">
+
+              <div class="flex gap-2 px-4 items-center">
+                <div class="w-10 h-10 rounded-full bg-dashbody flex items-center justify-center text-banner-blue">
+                  <i class="fa-solid fa-user text-[16px] leading-[20px] font-normal"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[13px] leading-[20px] font-normal">Validateur</span>
+                  <span class="text-[13px] leading-[20px] font-bold">OUSMANE GOFFA</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mt-3">
+                <div class="flex gap-2 px-4 items-center">
+                  <div class="w-10 h-10 rounded-full bg-dashbody flex items-center justify-center text-banner-blue">
+                    <i class="fa-solid fa-user text-[16px] leading-[20px] font-normal"></i>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-[13px] leading-[20px] font-normal">Identifiant</span>
+                    <span class="text-[13px] leading-[20px] font-bold">DEMBE111</span>
+                  </div>
+                </div>
+                <button class="flex items-center gap-2 text-white bg-badgegreen text-xs font-bold px-4 py-2 rounded-md
+                  hover:opacity-75 transition duration-200 ease-in-out transform scale-100 hover:scale-90 mr-4">
+                  <i class="fa-solid fa-check"></i>
+                  <span class="uppercase"> payée </span>
+                </button>
+              </div>
+
+              <div class="flex gap-2 px-4 items-center mt-3">
+                <div class="w-10 h-10 rounded-full bg-dashbody flex items-center justify-center text-banner-blue">
+                  <i class="fa-regular fa-calendar text-[16px] leading-[20px] font-normal"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[13px] leading-[20px] font-normal">Date validation</span>
+                  <span class="text-[13px] leading-[20px] font-bold">04/09/2024 à 11:42:57</span>
+                </div>
+              </div>
+
+            </div>
+            <button class="w-1/3 bg-[#e8ecef] flex items-center justify-center p-4">
+              <i class="fa-regular fa-square-check text-[#8f9bb3] text-[60px] leading-[60px] font-normal transition duration-200
+              transform scale-100 hover:scale-75 ease-in-out"></i>
+            </button>
+          </div>
+          <!-- end of card -->
+        </div>
+        </div>
+        <div class="w-1/3 flex items-center justify-center ml-2 bg-white rounded">
+          <img src="/assets/validations-illustration.svg" alt="svg" class="object-contain w-[80%] h-[230px]">
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

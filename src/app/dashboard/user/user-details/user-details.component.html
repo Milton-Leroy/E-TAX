@@ -1,0 +1,81 @@
+<div class="absolute inset-0 bg-opacity-100 z-10 w-full h-full backdrop-brightness-[.6] flex items-center justify-center ">
+  <div class="w-[40%] h-[80%] mx-auto my-auto bg-white shadow rounded border flex flex-col">
+    <div class="w-full h-full mx-auto flex flex-col">
+      <!-- head top section -->
+      <div class="w-full h-[10%] mt-4 border-b-2 border-inputbg flex items-center">
+        <h1 class="ml-7 text-[18px] leading-[24px] font-semibold"> Détails du compte utilisateur </h1>
+        <div class="flex gap-2">
+          <span class="bg-badgegreen py-2 px-4 rounded-md text-white uppercase text-xs font-bold"> utilisateur ACTIVÉ </span>
+          <span class="bg-deeppink py-2 px-4 rounded-md text-white uppercase text-xs font-bold"> OTP DESACTIVÉ </span>
+        </div>
+      </div>
+      <!-- form body middle section -->
+      <div class="w-full h-[75%] mt-2 flex flex-col overflow-y-scroll scrollbar-thin scrollbar-track-white scrollbar-thumb-inputbg no-scrollbar-buttons">
+        <div class="flex flex-col w-[90%] mx-auto mt-2">
+          <label for="" class="text-xs text-[#8F9BB3] font-bold">Nom(s) et Prénom(s)</label>
+          <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+              value="THOROUM Dominique" disabled>
+        </div>
+        <div class="flex flex-col w-[90%] mx-auto mt-2">
+          <label for="" class="text-xs text-[#8F9BB3] font-bold">Catégorie </label>
+          <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+             value="Administrateur" disabled>
+        </div>
+        <div class="flex flex-col w-[90%] mx-auto mt-2">
+          <label for="" class="text-xs text-[#8F9BB3] font-bold">Genre</label>
+          <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+            value="HOMME" disabled>
+        </div>
+        <div class="flex flex-col w-[90%] mx-auto mt-2">
+          <label for="" class="text-xs text-[#8F9BB3] font-bold">Identifiant</label>
+          <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+            value="BCC001" disabled>
+        </div>
+        <div class="flex flex-col w-[90%] mx-auto mt-2">
+          <label for="" class="text-xs text-[#8F9BB3] font-bold">Date de création</label>
+          <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+            value="01/03/2024 12:27:02" disabled>
+        </div>
+        <div class="flex flex-col w-[90%] mx-auto mt-2">
+          <label for="" class="text-xs text-[#8F9BB3] font-bold">Fonction dans l'entreprise</label>
+          <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+            value="Superviseur plateforme e-tax" disabled>
+        </div>
+
+        <div class="w-[90%] mx-auto mt-4 flex">
+          <div class="flex flex-col w-1/2 mr-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Nom(s)</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+              value="THOROUM" disabled>
+          </div>
+          <div class="flex flex-col w-1/2 ml-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Prénom(s)</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+              value="Dominique" disabled>
+          </div>
+        </div>
+
+        <div class="w-[90%] mx-auto mt-4 flex">
+          <div class="flex flex-col w-1/2 mr-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Téléphone</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+              value="1122334554" disabled>
+          </div>
+          <div class="flex flex-col w-1/2 ml-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Email</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold"
+              value="dthoroum@bcc-bank.com" disabled>
+          </div>
+        </div>
+    </div>
+      <!-- buttons bottom section -->
+      <div class="w-full h-[15%] flex items-center justify-center border-t-2 border-inputbg">
+        <button class="text-white bg-banner-blue flex items-center gap-2 py-2.5 px-4 rounded text-[14px] leading-[16px]
+          font-bold hover:bg-opacity-80 transition duration-200 ease-in-out transform scale-100 hover:scale-95 group" (click)="onCancel()">
+          <i class="fa-solid fa-square-xmark text-base"></i>
+          <span>FERMER</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

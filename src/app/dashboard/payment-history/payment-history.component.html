@@ -1,0 +1,191 @@
+
+<main class="w-[83.3vw] h-auto font-lato-regular">
+  <div class="w-[97%] h-full mx-auto">
+
+    <!-- heading 1st row -->
+    <h1 class="text-[#242b45] text-[18px] leading-[48px] font-bold">Historique des paiements de taxes</h1>
+
+    <!-- filter row -->
+    <form class="w-full flex mt-4">
+      <!-- filter column left elements -->
+        <div class="w-[90%] flex gap-x-1">
+          <p class="font-normal text-[15x] leading-[20px] flex justify-center items-center">Filtres:</p>
+          <div>
+            <button type="button" class="bg-banner-blue p-2.5 rounded-md text-white font-bold text-[12px] leading-[12px] transform scale-100
+              hover:scale-95 group transition duration-200 ease-in-out">
+              <i class="fa-solid fa-rotate-right transform scale-100 group-hover:scale-[.7] transition duration-200 ease-in-out"></i>
+            </button>
+          </div>
+           <!-- filter drop downs -->
+          <div class="relative max-w-[18%] bg-dashbody">
+            <!-- Icon positioned absolutely within the input field -->
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+              <svg class="text-gray-500 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+              </svg>
+            </div>
+            <!-- Datepicker Input -->
+            <input datepicker id="default-datepicker" type="text" class="bg-white border border-banner-blue text-gray-900 text-sm rounded
+              focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 px-2 pt-1.5 placeholder:text-gray-700 hover:bg-dashbody"
+              placeholder="DEBUT">
+          </div>
+          <div class="relative max-w-[18%] bg-dashbody">
+            <!-- Icon positioned absolutely within the input field -->
+            <div class="absolute inset-y-0 start-0 flex items-center justify-center ps-3.5 pointer-events-none">
+              <svg class="text-gray-500 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+              </svg>
+            </div>
+            <!-- Datepicker Input -->
+            <input datepicker id="default-datepicker2" type="text" class="bg-white border border-banner-blue text-gray-900 text-sm rounded
+              focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 px-2 pt-1.5 placeholder:text-gray-700 hover:bg-dashbody"
+              placeholder="FIN">
+          </div>
+          <div class="w-[12%] flex flex-col relative ">
+            <app-history-first-filter />
+          </div>
+          <input type="text" placeholder="Numéro de paiement impôt" class="border rounded border-banner-blue hover:bg-dashbody
+            placeholder:text-gray-700 h-[95%] w-[18%]">
+          <input type="text" placeholder="Nom Agence" class="border rounded border-banner-blue hover:bg-dashbody
+            placeholder:text-gray-700 h-[95%] w-[8%]">
+          <input type="text" placeholder="Nom Agent" class="border rounded border-banner-blue hover:bg-dashbody
+            placeholder:text-gray-700 h-[95%] w-[8%]">
+          <!-- end of filter elements -->
+
+        </div>
+
+      <!--filter line right components -->
+      <div class="w-[10%] flex gap-x-4 justify-end">
+        <div class="flex gap-2">
+          <button type="button" class="bg-banner-blue p-2.5 rounded-md text-white font-bold text-[12px] leading-[12px] transform scale-100
+            hover:scale-95 group transition duration-200 ease-in-out" (click)="displayLoading()">
+            <i class="fa-solid fa-magnifying-glass transform scale-100 group-hover:scale-[.7] transition duration-200 ease-in-out"></i>
+          </button>
+          <button type="button" class="bg-banner-blue p-2.5 rounded-md text-white font-bold text-[12px] leading-[12px] transform scale-100
+            hover:scale-95 group transition duration-200 ease-in-out">
+            <i class="fa-solid fa-download transform scale-100 group-hover:scale-[.7] transition duration-200 ease-in-out"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+    <!-- filter row end -->
+
+     <!-- loader when search button is clicked -->
+     <app-loader *ngIf="showLoader"/>
+
+    <!-- table start -->
+    <div class="w-full h-full min-h-[500px] bg-white shadow mt-4 rounded">
+     <table class="w-full h-full">
+        <thead class="w-full text-sm font-bold">
+          <tr class="border-b-2 border-dashbody">
+            <th class="w-[5%] py-3">N<sup>o</sup></th>
+            <th class="w-[15%] py-3">Date initiation</th>
+            <th class="w-[15%] py-3">Date confirmation</th>
+            <th class="w-[10%] py-3">Client</th>
+            <th class="w-[15%] py-3">	Agence</th>
+            <th class="w-[10%] py-3">	Montant</th>
+            <th class="w-[10%] py-3">	Statut</th>
+            <th class="w-[20%] py-3">
+              <div class="flex items-center justify-end gap-2 mr-6">
+                <p class="pr-2">1-1 sur 10</p>
+                <i class="fa-solid fa-chevron-left w-8 h-8 flex items-center justify-center rounded text-base bg-dashbody
+                  text-banner-blue transform scale-100 hover:scale-[.9] transition duration-200 ease-in-out"></i>
+                <i class="fa-solid fa-chevron-right w-8 h-8 flex items-center justify-center rounded text-base leading-[12px]
+                    bg-dashbody text-banner-blue transform scale-100 hover:scale-[.9] transition duration-200 ease-in-out"></i>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="w-full h-full text-[12px] leading-[20px] text-[#222B45] font-normal">
+
+          <!-- displayed when table is empty -->
+          <tr>
+            <td colspan="100%" class="h-[400px]" *ngIf="tableEmpty">
+              <div class="w-full h-full flex flex-col items-center justify-center relative">
+                <span class="absolute top-[30%] text-[15px] leading-[20px] text-[#222B45]">Aucune donnée trouvée</span>
+                <img src="/assets/empty.png" alt="empty" class="object-contain w-40 h-[200px]">
+              </div>
+            </td>
+          </tr>
+          <!-- end -->
+
+          <tr class="w-full border-b-[1px] border-dashbody">
+            <td class="w-[5%] py-3 text-center">1</td>
+            <td class="w-[15%] py-3 text-center">	04/09/2024:11:27</td>
+            <td class="w-[15%] py-3 text-center">04/09/2024:11:42</td>
+            <td class="w-[10%] py-3 text-center">OCIETE GALAXY ...</td>
+            <td class="w-[15%] py-3 text-center">	AGENCE DE DEMBE</td>
+            <td class="w-[10%] py-3 text-center">40 000</td>
+            <td class="w-[10%] py-2 text-center">
+              <span class="border border-badgegreen bg-[#ebfcf6] hover:bg-[#d5f4e9] text-badgegreen py-[2px] px-10 transition duration-200
+                ease-in-out rounded-md text-[10px] leading-[12px]">PAYÉE</span>
+            </td>
+            <td class="w-[20%] py-3">
+              <div class="flex items-center justify-end gap-2 mr-6">
+                <i class="fa-solid fa-list-ul w-7 h-7 flex items-center justify-center rounded text-sm bg-dashbody
+                  text-badgegreen transform scale-100 hover:scale-[.7] transition duration-200 ease-in-out"
+                  (click)="showPaymentDetails=true"></i>
+                <i class="fa-solid fa-pen w-7 h-7 flex items-center justify-center rounded text-sm bg-dashbody
+                  text-badgegreen transform scale-100 hover:scale-[.7] transition duration-200 ease-in-out"
+                  (click)="routeToEditPayement()"></i>
+              </div>
+            </td>
+          </tr>
+          <tr class="w-full border-b-[1px] border-dashbody">
+            <td class="w-[5%] py-3 text-center">1</td>
+            <td class="w-[15%] py-3 text-center">	04/09/2024:11:27</td>
+            <td class="w-[15%] py-3 text-center">04/09/2024:11:42</td>
+            <td class="w-[10%] py-3 text-center">OCIETE GALAXY ...</td>
+            <td class="w-[15%] py-3 text-center">	AGENCE DE DEMBE</td>
+            <td class="w-[10%] py-3 text-center">40 000</td>
+            <td class="w-[10%] py-2 text-center">
+              <span class="border border-badgegreen bg-[#ebfcf6] hover:bg-[#d5f4e9] text-badgegreen py-[2px] px-10 transition duration-200
+                ease-in-out rounded-md text-[10px] leading-[12px]">PAYÉE</span>
+            </td>
+            <td class="w-[20%] py-3">
+              <div class="flex items-center justify-end gap-2 mr-6">
+                <i class="fa-solid fa-list-ul w-7 h-7 flex items-center justify-center rounded text-sm bg-dashbody
+                  text-badgegreen transform scale-100 hover:scale-[.7] transition duration-200 ease-in-out"
+                  (click)="showPaymentDetails=true"></i>
+                <i class="fa-solid fa-pen w-7 h-7 flex items-center justify-center rounded text-sm bg-dashbody
+                  text-badgegreen transform scale-100 hover:scale-[.7] transition duration-200 ease-in-out"
+                  (click)="routeToEditPayement()"></i>
+              </div>
+            </td>
+          </tr>
+          <tr class="w-full border-b-[1px] border-dashbody">
+            <td class="w-[5%] py-3 text-center">1</td>
+            <td class="w-[15%] py-3 text-center">	04/09/2024:11:27</td>
+            <td class="w-[15%] py-3 text-center">04/09/2024:11:42</td>
+            <td class="w-[10%] py-3 text-center">OCIETE GALAXY ...</td>
+            <td class="w-[15%] py-3 text-center">	AGENCE DE DEMBE</td>
+            <td class="w-[10%] py-3 text-center">40 000</td>
+            <td class="w-[10%] py-2 text-center">
+              <span class="border border-badgegreen bg-[#ebfcf6] hover:bg-[#d5f4e9] text-badgegreen py-[2px] px-10 transition duration-200
+                ease-in-out rounded-md text-[10px] leading-[12px]">PAYÉE</span>
+            </td>
+            <td class="w-[20%] py-3">
+              <div class="flex items-center justify-end gap-2 mr-6">
+                <i class="fa-solid fa-list-ul w-7 h-7 flex items-center justify-center rounded text-sm bg-dashbody
+                  text-badgegreen transform scale-100 hover:scale-[.7] transition duration-200 ease-in-out"
+                  (click)="showPaymentDetails=true"></i>
+                <i class="fa-solid fa-pen w-7 h-7 flex items-center justify-center rounded text-sm bg-dashbody
+                  text-badgegreen transform scale-100 hover:scale-[.7] transition duration-200 ease-in-out"
+                  (click)="routeToEditPayement()"></i>
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+     </table>
+    </div>
+    <!-- table end -->
+
+    <!--user details form -->
+      <app-payment-details *ngIf="showPaymentDetails" (closePaymentDetails)="showPaymentDetails=false"/>
+      <!-- end of form -->
+
+  </div>
+</main>
+
+

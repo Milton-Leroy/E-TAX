@@ -1,0 +1,172 @@
+
+<main class="w-[83.3vw] h-auto font-lato-regular">
+  <div class="w-[97%] h-full mx-auto">
+
+    <!-- heading 1st row -->
+    <h1 class="text-[#242b45] text-[18px] leading-[48px] font-bold">Liste des agences</h1>
+
+    <!-- filter row -->
+    <form class="w-full flex mt-4">
+      <!-- filter column left elements -->
+        <div class="w-4/5 flex gap-x-2">
+          <p class="font-normal text-[15x] leading-[20px] flex justify-center items-center">Filtres:</p>
+          <div>
+            <button type="button" class="bg-banner-blue p-2.5 rounded-md text-white font-bold text-[12px] leading-[12px] transform scale-100
+              hover:scale-95 group transition duration-200 ease-in-out">
+              <i class="fa-solid fa-rotate-right transform scale-100 group-hover:scale-[.7] transition duration-200 ease-in-out"></i>
+            </button>
+          </div>
+          <!-- filter drop downs -->
+            <div class="w-[18%] flex flex-col relative">
+              <app-agency-filter />
+            </div>
+          <!-- end of filter elements -->
+
+        </div>
+
+      <!--filter line right components -->
+      <div class="w-1/5 flex gap-x-4 justify-end">
+        <div class="flex gap-2">
+          <button type="button" class="bg-banner-blue p-2.5 rounded-md text-white font-bold text-[12px] leading-[12px] transform scale-100
+            hover:scale-95 group transition duration-200 ease-in-out" (click)="displayLoading()">
+            <i class="fa-solid fa-magnifying-glass transform scale-100 group-hover:scale-[.7] transition duration-200 ease-in-out"></i>
+          </button>
+          <button type="button" class="bg-banner-blue p-2.5 rounded-md text-white font-bold text-[12px] leading-[12px] transform scale-100
+            hover:scale-95 group transition duration-200 ease-in-out">
+            <i class="fa-solid fa-download transform scale-100 group-hover:scale-[.7] transition duration-200 ease-in-out"></i>
+          </button>
+          <div>
+            <button type="button" class="bg-banner-blue py-2.5 p-4 rounded-md flex gap-x-2 transform scale-100 hover:scale-95 group
+              transition duration-200 ease-in-out" (click)="showCreateAgencyForm=true">
+              <i class="fa-regular fa-square-plus text-white font-medium text-[12px] leading-[12px]"></i>
+              <span class="uppercase text-[12px] leading-[12px] font-bold text-white">CREER</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- filter row end -->
+
+     <!-- loader when search button is clicked -->
+     <app-loader *ngIf="showLoader"/>
+
+    <!-- table start -->
+    <div class="w-full h-full min-h-[480px] max-h-[520px] bg-white shadow mt-4 rounded overflow-y-scroll
+      scrollbar-thin scrollbar-track-white scrollbar-thumb-inputbg no-scrollbar-buttons">
+     <table class="w-full h-full z-10">
+        <thead class="w-full text-sm font-bold">
+          <tr class="border-b-2 border-dashbody">
+            <th class="w-[10%] py-3">Code</th>
+            <th class="w-[25%] py-3">	Label</th>
+            <th class="w-[15%] py-3">	Date creation</th>
+            <th class="w-[20%] py-3">Adress</th>
+            <th class="w-[10%] py-3">	Statut</th>
+            <th class="w-[20%] py-3">
+              <div class="flex items-center justify-end gap-2">
+                <p class="pr-2">1-1 sur 10</p>
+                <i class="fa-solid fa-chevron-left w-8 h-8 flex items-center justify-center rounded text-base bg-dashbody
+                  text-banner-blue transform scale-100 hover:scale-[.9] transition duration-200 ease-in-out"></i>
+                <i class="fa-solid fa-chevron-right w-8 h-8 flex items-center justify-center rounded text-base leading-[12px]
+                    bg-dashbody text-banner-blue transform scale-100 hover:scale-[.9] transition duration-200 ease-in-out"></i>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="w-full h-full text-[12px] leading-[20px] text-[#222B45] font-normal">
+
+          <!-- displayed when table is empty -->
+          <tr>
+            <td colspan="100%" class="h-[400px]" *ngIf="tableEmpty">
+              <div class="w-full h-full flex flex-col items-center justify-center relative">
+                <span class="absolute top-[30%] text-[15px] leading-[20px] text-[#222B45]">Aucune donnée trouvée</span>
+                <img src="/assets/empty.png" alt="empty" class="object-contain w-40 h-[200px]">
+              </div>
+            </td>
+          </tr>
+          <!-- end -->
+          <tr class="w-full border-b-[1px] border-dashbody">
+            <td class="w-[10%] py-2 text-center">BCCA100</td>
+            <td class="w-[25%] py-2 text-center">B.C.C N'DJAMENA SIEGE</td>
+            <td class="w-[15%] py-2 text-center">01/03/2024:12:27</td>
+            <td class="w-[20%] py-2 text-center">-</td>
+            <td class="w-[10%] py-2 text-center">
+              <span class="border border-badgegreen bg-[#ebfcf6] hover:bg-[#d5f4e9] text-badgegreen py-[2px] px-8 transition duration-200
+                ease-in-out rounded-md text-[10px] leading-[12px]">ACTIVEE</span>
+            </td>
+            <td class="w-[20%] py-3">
+              <div class="flex items-center justify-end gap-2 mr-2">
+                <i class="fa-solid fa-list-ul w-6 h-6 flex items-center justify-center rounded text-sm bg-dashbody
+                  text-badgegreen transform scale-100 hover:scale-[.7] transition duration-200 ease-in-out"
+                  (click)="showAgencyDetails=true"></i>
+                <i class="fa-solid fa-pen w-6 h-6 flex items-center justify-center rounded text-sm bg-dashbody
+                  text-badgegreen transform scale-100 hover:scale-[.7] transition duration-200 ease-in-out
+                  " (click)="showEditAgencyForm=true"></i>
+                  <a routerLink="/agency-list">
+                    <i class="fa-solid fa-user-group w-6 h-6 flex items-center justify-center rounded text-sm bg-dashbody
+                    text-badgegreen cursor-pointer transform scale-100 hover:scale-[.75] transition duration-200 ease-in-out"></i>
+                  </a>
+              </div>
+            </td>
+          </tr>
+          <tr class="w-full border-b-[1px] border-dashbody">
+            <td class="w-[10%] py-2 text-center">BCCA100</td>
+            <td class="w-[25%] py-2 text-center">B.C.C N'DJAMENA SIEGE</td>
+            <td class="w-[15%] py-2 text-center">01/03/2024:12:27</td>
+            <td class="w-[20%] py-2 text-center">-</td>
+            <td class="w-[10%] py-2 text-center">
+              <span class="border border-badgegreen bg-[#ebfcf6] hover:bg-[#d5f4e9] text-badgegreen py-[2px] px-8 transition duration-200
+                ease-in-out rounded-md text-[10px] leading-[12px]">ACTIVEE</span>
+            </td>
+            <td class="w-[20%] py-3">
+              <div class="flex items-center justify-end gap-2 mr-2">
+                <i class="fa-solid fa-list-ul w-6 h-6 flex items-center justify-center rounded text-sm bg-dashbody
+                  text-badgegreen transform scale-100 hover:scale-[.7] transition duration-200 ease-in-out"
+                  (click)="showAgencyDetails=true"></i>
+                <i class="fa-solid fa-pen w-6 h-6 flex items-center justify-center rounded text-sm bg-dashbody
+                  text-badgegreen transform scale-100 hover:scale-[.7] transition duration-200 ease-in-out"></i>
+                <i class="fa-solid fa-user-group w-6 h-6 flex items-center justify-center rounded text-sm bg-dashbody
+                  text-badgegreen cursor-pointer transform scale-100 hover:scale-[.75] transition duration-200 ease-in-out"></i>
+              </div>
+            </td>
+          </tr>
+          <tr class="w-full border-b-[1px] border-dashbody">
+            <td class="w-[10%] py-2 text-center">BCCA100</td>
+            <td class="w-[25%] py-2 text-center">B.C.C N'DJAMENA SIEGE</td>
+            <td class="w-[15%] py-2 text-center">01/03/2024:12:27</td>
+            <td class="w-[20%] py-2 text-center">-</td>
+            <td class="w-[10%] py-2 text-center">
+              <span class="border border-badgegreen bg-[#ebfcf6] hover:bg-[#d5f4e9] text-badgegreen py-[2px] px-8 transition duration-200
+                ease-in-out rounded-md text-[10px] leading-[12px]">ACTIVEE</span>
+            </td>
+            <td class="w-[20%] py-3">
+              <div class="flex items-center justify-end gap-2 mr-2">
+                <i class="fa-solid fa-list-ul w-6 h-6 flex items-center justify-center rounded text-sm bg-dashbody
+                  text-badgegreen transform scale-100 hover:scale-[.7] transition duration-200 ease-in-out"
+                  (click)="showAgencyDetails=true"></i>
+                <i class="fa-solid fa-pen w-6 h-6 flex items-center justify-center rounded text-sm bg-dashbody
+                  text-badgegreen transform scale-100 hover:scale-[.7] transition duration-200 ease-in-out"></i>
+                <i class="fa-solid fa-user-group w-6 h-6 flex items-center justify-center rounded text-sm bg-dashbody
+                  text-badgegreen cursor-pointer transform scale-100 hover:scale-[.75] transition duration-200 ease-in-out"></i>
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+     </table>
+    </div>
+    <!-- table end -->
+
+    <!--add new agency form -->
+      <app-create-agency *ngIf="showCreateAgencyForm" (closeCreateAgencyForm)="showCreateAgencyForm=false"/>
+      <!-- end of form -->
+
+    <!--user details form -->
+      <app-agency-details *ngIf="showAgencyDetails" (closeAgencyDetails)="showAgencyDetails=false"/>
+      <!-- end of form -->
+
+    <!-- edit user details form -->
+      <app-edit-agency *ngIf="showEditAgencyForm" (closeAgencyEditForm)="showEditAgencyForm=false"/>
+      <!-- end edit form -->
+
+  </div>
+</main>

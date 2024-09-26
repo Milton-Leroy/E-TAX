@@ -1,0 +1,93 @@
+<div class="absolute inset-0 bg-opacity-100 z-10 w-full h-full backdrop-brightness-[.6] flex items-center justify-center">
+  <div class="w-[40%] h-[80%] mx-auto my-auto bg-white shadow rounded border flex flex-col">
+    <form class="w-full h-full mx-auto flex flex-col">
+      <!-- head top section -->
+      <div class="w-full h-[28%] mt-4 flex flex-col">
+        <h1 class="ml-7 text-[18px] leading-[24px] font-semibold">Récapitulatif paiement</h1>
+        <div class="mt-4 h-[120px] w-[90%] bg-[url('/assets/bg-voucher.png')] bg-center bg-no-repeat bg-cover flex flex-col items-center
+          justify-center rounded-md text-white font-lato-bold mx-auto">
+          <p class="text-[14px] leading-[16px] font-bold text-white">Réference Amplitude</p>
+          <div class="flex items-center justify-center text-black bg-[#f7ead6] rounded-[5px] py-4 px-20 mt-2 text-base font-medium">
+            <div>vers-04092024-268971</div>
+          </div>
+        </div>
+      </div>
+      <!-- form body middle section -->
+      <div class="w-full h-[57%] mt-4 flex flex-col overflow-y-scroll scrollbar-thin scrollbar-track-white scrollbar-thumb-inputbg no-scrollbar-buttons">
+
+        <div class="w-[90%] mx-auto mt-2 flex">
+          <div class="flex flex-col w-1/2 mr-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Date initiation</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold cursor-text"
+            value="04/09/2024" disabled>
+          </div>
+          <div class="flex flex-col w-1/2 ml-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Date confirmation</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold cursor-text"
+            value="04/09/2024" disabled>
+          </div>
+        </div>
+
+        <div class="w-[90%] mx-auto mt-2 flex">
+          <div class="flex flex-col w-1/2 mr-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Initiateur</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold cursor-text"
+            value="SOSTHINE NGUEALBAYE" disabled>
+          </div>
+          <div class="flex flex-col w-1/2 ml-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Validateur</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold cursor-text"
+            value="OUSMANE GOFFA" disabled>
+          </div>
+        </div>
+
+        <div class="w-[90%] mx-auto mt-2 flex">
+          <div class="flex flex-col w-1/2 mr-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Numéro de paiement</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold cursor-text"
+            value="P2024031808-9024392E" disabled>
+          </div>
+          <div class="flex flex-col w-1/2 ml-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Montant</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold cursor-text"
+            value="40000" disabled>
+          </div>
+        </div>
+
+        <div class="w-[90%] mx-auto mt-2 flex">
+          <div class="flex flex-col w-1/2 mr-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Code impôt client</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold cursor-text"
+            value="9024392E" disabled>
+          </div>
+          <div class="flex flex-col w-1/2 ml-2">
+            <label for="" class="text-xs text-[#8F9BB3] font-bold">Nom du client</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold cursor-text"
+            value="SOCIETE GALAXY ENTERTAINMENT SARL" disabled>
+          </div>
+        </div>
+
+        <div class="flex flex-col w-[90%] mx-auto mt-2">
+          <label for="" class="text-xs text-[#8F9BB3] font-bold">Nom agence</label>
+          <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold cursor-text"
+            value="AGENCE DE DEMBE" disabled>
+        </div>
+        <div class="flex flex-col w-[90%] mx-auto mt-2">
+          <label for="" class="text-xs text-[#8F9BB3] font-bold">Description</label>
+          <textarea type="text" class="w-full mt-1 h-20 bg-inputbg rounded border border-banner-blue px-4 text-base font-semibold cursor-text"
+             disabled>BORDEREAU</textarea>
+        </div>
+      </div>
+      <!-- buttons bottom section -->
+      <div class="w-full h-[15%] flex items-center justify-center border-t-2 border-inputbg">
+        <button type="button" class="text-white bg-banner-blue flex items-center gap-2 py-2.5 px-4 rounded text-[14px] leading-[16px]
+          font-bold hover:bg-opacity-80 transition duration-200 ease-in-out transform scale-100 hover:scale-95 group" (click)="onCancel()">
+          <i class="fa-solid fa-square-xmark text-base"></i>
+          <span>FERMER</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+

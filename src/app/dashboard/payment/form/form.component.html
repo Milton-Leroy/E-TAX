@@ -1,0 +1,82 @@
+<main class="w-[83.3vw] h-[90%] font-lato-regular">
+  <div class="w-[45%] h-full mx-auto flex flex-col bg-white shadow mt-10 rounded">
+
+    <div class="w-full flex flex-col py-8 text-xs text-[#8f9bb3] font-bold items-center">
+
+      <div class="flex items-center w-full gap-6">
+        <div>
+          <p class="w-8 h-8 border rounded-full bg-banner-blue border-banner-blue flex items-center justify-center ml-16
+          text-base text-white"><i class="fa-solid fa-check"></i></p>
+        </div>
+        <div class="border-t-2 border-banner-blue w-full"></div>
+        <div>
+          <p class="w-8 h-8 border rounded-full border-banner-blue flex items-center justify-center mr-16 text-base">2</p>
+        </div>
+      </div>
+      <div class="flex justify-between items-center w-full mt-1">
+        <span class="mt-2 ml-8">Saisir les informations</span>
+        <span class="mt-2 mr-8">Consulter la déclaration</span>
+      </div>
+    </div>
+
+    <div class="w-[90%] mx-auto">
+      <form class="w-full">
+       <div class="flex flex-col items-center justify-center mt-2">
+        <div class="w-full flex items-center justify-center">
+          <div class=" w-1/2 flex flex-col mr-2">
+            <label for="" class="text-[15px] leading-[20px] text-[#222b45] font-normal">Code de l’établissement </label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4
+              text-[15px] leading-[24px] font-semibold" name="userId" value="1000056-512226" disabled>
+          </div>
+          <div class="flex flex-col w-1/2 ml-2">
+            <label for="" class="text-[15px] leading-[20px] [#222b45] font-normal">Numéro du payeur</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4
+              text-[15px] leading-[24px] font-semibold" name="userId" value="9046243T" disable>
+          </div>
+        </div>
+        <div class="w-full flex items-center justify-center mt-6">
+          <div class=" w-1/2 flex flex-col mr-2">
+            <label for="" class="text-[15px] leading-[20px] text-[#222b45] font-normal">Numéro de paiement </label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4
+              text-[15px] leading-[24px] font-semibold" name="userId" value="P2024031814-9024392E" disabled>
+          </div>
+          <div class="flex flex-col w-1/2 ml-2">
+            <label for="" class="text-[15px] leading-[20px] [#222b45] font-normal">Montant</label>
+            <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4
+              text-[15px] leading-[24px] font-semibold" name="userId" value="30000000" disabled>
+          </div>
+        </div>
+        <div class="flex flex-col w-full mt-6">
+          <label for="" class="text-[15px] leading-[20px] text-[#222b45] font-normal">Raison sociale </label>
+          <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4
+            text-[15px] leading-[24px] font-semibold" name="userId" value="IBRAHIM CHERIF" disabled>
+        </div>
+        <div class="flex flex-col w-full mt-6">
+          <label for="" class="text-[15px] leading-[20px] text-[#222b45] font-normal">Description de paiement</label>
+          <textarea type="text" class="w-full mt-1 h-14 bg-inputbg rounded border border-banner-blue px-4
+            text-[15px] leading-[24px] font-semibold" name="userId" value="P2023004781-9036217Y" disabled>PAIEMENT TVA</textarea>
+        </div>
+       </div>
+
+        <div class="w-full mt-14 mb-4 flex items-center justify-center">
+          <div class="w-3/4 flex items-center justify-center gap-x-4 border-t-2 border-gray-100">
+            <button type="button" class="text-black bg-dashbody flex items-center gap-2 py-2 px-4 rounded text-[14px] leading-[16px]
+              font-semibold hover:bg-opacity-50 transition duration-200 ease-in-out transform scale-100 hover:scale-95 group mt-4"
+              (click)="redirectBack()">
+              <i class="fa-solid fa-arrow-left text-base"></i>
+              <span>RETOUR</span>
+            </button>
+            <button type="submit" class="text-white bg-banner-blue flex items-center gap-2 py-2 px-4 rounded text-[14px] leading-[16px]
+              font-bold hover:bg-opacity-80 transition duration-200 ease-in-out transform scale-100 hover:scale-95 group mt-4">
+              <i class="fa-solid fa-arrow-right text-base"></i>
+              <span>CONTINUER</span>
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</main>
+

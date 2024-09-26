@@ -1,0 +1,45 @@
+<main class="w-[83.3vw] h-auto font-lato-regular">
+  <div class="w-[45%] h-full mx-auto flex flex-col bg-white shadow mt-14 rounded">
+
+    <div class="w-full flex flex-col py-8 text-xs text-[#8f9bb3] font-bold items-center">
+
+      <div class="flex items-center w-full gap-6">
+        <div>
+          <p class="w-8 h-8 border rounded-full border-banner-blue flex items-center justify-center ml-16 text-base">1</p>
+        </div>
+        <div class="border-t-2 border-dashbody w-full"></div>
+        <div>
+          <p class="w-8 h-8 border rounded-full border-dashbody flex items-center justify-center mr-16 text-base">2</p>
+        </div>
+      </div>
+      <div class="flex justify-between items-center w-full mt-1">
+        <span class="mt-2 ml-8">Saisir les informations</span>
+        <span class="mt-2 mr-5">Consulter la déclaration</span>
+      </div>
+    </div>
+
+    <div class="w-[60%] mx-auto">
+      <form class="w-full">
+        <div class="flex flex-col w-full">
+          <label for="" class="text-[15px] leading-[20px] text-black font-normal">
+            Numéro de paiement<span class="text-red-500">*</span>
+          </label>
+          <input type="text" class="w-full mt-1 h-10 bg-inputbg rounded border border-banner-blue px-4
+            text-[15px] leading-[24px]" name="userId" placeholder="Exemple: P2023004781-9036217Y">
+        </div>
+
+        <div class="w-full mt-12 mb-8 flex items-center justify-center ">
+          <div class="w-1/2 flex items-center justify-center border-t-2 border-gray-100">
+            <button class="text-white bg-banner-blue flex items-center gap-2 py-2.5 px-4 rounded text-[14px] leading-[16px]
+              font-bold hover:bg-opacity-80 transition duration-200 ease-in-out transform scale-100 hover:scale-95 group mt-4"
+              (click)="routeToPaymentForm()">
+              <i class="fa-solid fa-arrow-right text-base"></i>
+              <span>CONTINUER</span>
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</main>

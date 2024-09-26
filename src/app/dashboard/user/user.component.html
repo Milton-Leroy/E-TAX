@@ -1,0 +1,140 @@
+
+<main class="w-[83.3vw] h-auto font-lato-regular">
+  <div class="w-[95%] h-full mx-auto">
+
+    <!-- heading 1st row -->
+    <h1 class="text-[#242b45] text-[18px] leading-[48px] font-bold">Liste des administrateurs</h1>
+
+    <!-- filter row -->
+    <form class="w-full flex mt-4">
+      <!-- filter column left elements -->
+        <div class="w-4/5 flex gap-x-4">
+          <p class="font-normal text-[15x] leading-[20px] flex justify-center items-center">Filtres:</p>
+          <div>
+            <button type="button" class="bg-banner-blue p-2.5 rounded-md text-white font-bold text-[12px] leading-[12px] transform scale-100
+              hover:scale-95 group transition duration-200 ease-in-out">
+              <i class="fa-solid fa-rotate-right transform scale-100 group-hover:scale-[.7] transition duration-200 ease-in-out"></i>
+            </button>
+          </div>
+          <!-- first filter colum -->
+            <div class="w-[22%] flex flex-col relative">
+              <app-user-first-filter />
+            </div>
+            <!-- second filter column left side-->
+            <div class="w-[22%] flex flex-col relative">
+              <app-user-first-filter />
+            </div>
+        </div>
+      <!--filter line right components -->
+      <div class="w-1/5 flex gap-x-4 justify-end">
+        <div>
+          <button type="button" class="bg-banner-blue p-2.5 rounded-md text-white font-bold text-[12px] leading-[12px] transform scale-100
+            hover:scale-95 group transition duration-200 ease-in-out" (click)="displayLoading()">
+            <i class="fa-solid fa-magnifying-glass transform scale-100 group-hover:scale-[.7] transition duration-200 ease-in-out"></i>
+          </button>
+        </div>
+        <div>
+          <button type="button" class="bg-banner-blue py-2.5 p-4 rounded-md flex gap-x-2 transform scale-100 hover:scale-95 group
+            transition duration-200 ease-in-out" (click)="showUserCreateForm=true">
+            <i class="fa-regular fa-square-plus text-white font-medium text-[12px] leading-[12px]"></i>
+            <span class="uppercase text-[12px] leading-[12px] font-bold text-white"> Ajouter un compte </span>
+          </button>
+        </div>
+      </div>
+    </form>
+    <!-- filter row end -->
+
+     <!-- loader when search button is clicked -->
+     <app-loader *ngIf="showLoader"/>
+
+    <!-- table start -->
+    <div class="w-full min-h-[450px] bg-white shadow mt-4 rounded">
+     <table class="w-full">
+        <thead class="w-full text-sm font-bold">
+          <tr class="border-b-2 border-dashbody">
+            <th class="w-[5%] py-3">N<sup>o</sup></th>
+            <th class="w-[10%] py-3">Login</th>
+            <th class="w-[10%] py-3">Nom</th>
+            <th class="w-[10%] py-3">Prenom</th>
+            <th class="w-[20%] py-3"><div class="flex items-center justify-start">Email</div></th>
+            <th class="w-[10%] py-3">Statut</th>
+            <th class="w-[15%] py-3">Categories</th>
+            <th class="w-[20%] py-3">
+              <div class="flex items-center justify-center gap-2">
+                <p class="pr-2">1-1 sur 10</p>
+                <i class="fa-solid fa-chevron-left w-10 h-10 flex items-center justify-center rounded text-base bg-dashbody
+                  text-banner-blue transform scale-100 hover:scale-[.9] transition duration-200 ease-in-out"></i>
+                <i class="fa-solid fa-chevron-right w-10 h-10 flex items-center justify-center rounded text-base leading-[12px]
+                    bg-dashbody text-banner-blue transform scale-100 hover:scale-[.9] transition duration-200 ease-in-out"></i>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="w-full text-[12px] leading-[20px] text-[#222B45] font-normal">
+          @if(!user){
+            <tr>
+              <td colspan="100%" class="h-[400px]">
+                <div class="w-full h-full flex flex-col items-center justify-center relative">
+                  <span class="absolute top-[30%] text-[15px] leading-[20px] text-[#222B45]">Aucune donnée trouvée</span>
+                  <img src="/assets/empty.png" alt="empty" class="object-contain w-40 h-[200px]">
+                </div>
+              </td>
+            </tr>
+          }@else {
+            <tr class="w-full border-b-[1px] border-dashbody">
+              <td class="w-[5%] py-3 text-center">1</td>
+              <td class="w-[10%] py-3 text-center">{{ user.userId}}</td>
+              <td class="w-[10%] py-3 text-center">{{ user.name}}</td>
+              <td class="w-[10%] py-3 text-center">{{ user.surname}}</td>
+              <td class="w-[20%] py-3 text-center"><div class="flex items-center justify-start">{{ user.email}}</div></td>
+              <td class="w-[10%] py-3 text-center">
+                <span class="bg-badgegreen py-[2px] px-5 rounded-md text-white">ACTIVÉ</span>
+              </td>
+              <td class="w-[15%] py-3 text-center">
+                <span class="bg-badgegreen py-[2px] px-5 rounded-md text-white">{{ user.category | uppercase }}</span>
+              </td>
+              <td class="w-[20%] py-3">
+                <div class="flex items-center justify-end gap-2 mr-8">
+                  <i class="fa-solid fa-file-lines w-8 h-8 flex items-center justify-center rounded text-sm bg-dashbody
+                    text-banner-blue transform scale-100 hover:scale-[.7] transition duration-200 ease-in-out" (click)="showUserDetails=true"></i>
+                  <i class="fa-solid fa-pen w-8 h-8 flex items-center justify-center rounded text-sm bg-dashbody
+                    text-banner-blue transform scale-100 hover:scale-[.7] transition duration-200 ease-in-out" (click)="showUserEditForm=true"></i>
+                  <div class="relative">
+                    <i class="fa-solid fa-ellipsis w-8 h-8 flex items-center justify-center rounded text-sm bg-dashbody
+                    text-banner-blue cursor-pointer transform scale-100 hover:scale-[.75] transition duration-200 ease-in-out" (click)="displayDropdown()"></i>
+                    <!-- eye and lock -->
+                    <div class="absolute z-20 top-[40px] left-[-20px] mr-5 bg-white shadow" *ngIf="showDropdown">
+                      <button type="button" class="flex justify-center items-center px-4 p-3 border-b border-gray-200 transform scale-100 hover:scale-[.8]
+                        transition duration-200 ease-in-out">
+                        <i class="fa-solid fa-lock w-full bg-dashbody p-2.5 text-[12px] leading-[12px] text-gray-400 font-semibold rounded"></i>
+                      </button>
+                      <button type="button" class="flex justify-center items-center px-4 py-3 transform scale-100 hover:scale-[.8] transition duration-200 ease-in-out">
+                        <i class="fa-regular fa-eye-slash bg-dashbody p-2.5 text-[12px] leading-[12px] font-semibold text-deeppink rounded"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          }
+
+        </tbody>
+     </table>
+    </div>
+    <!-- table end -->
+
+    <!--add new user form -->
+      <app-create-user *ngIf="showUserCreateForm" (closeCreateUserForm)="showUserCreateForm=false; getUser()"/>
+      <!-- end of form -->
+
+    <!--user details form -->
+      <app-user-details *ngIf="showUserDetails" (closeUserDetailsForm)="showUserDetails=false"/>
+      <!-- end of form -->
+
+    <!-- edit user details form -->
+      <app-edit-user *ngIf="showUserEditForm" (closeEditForm)="showUserEditForm=false"/>
+      <!-- end edit form -->
+
+  </div>
+</main>
+

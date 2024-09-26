@@ -1,0 +1,30 @@
+<header class="w-full h-[80px] border bg-white flex items-center shadow font-lato-regular">
+  <!-- left block -->
+  <div class="w-1/4 h-full flex gap-4 items-center justify-start">
+    <div class="flex items-center gap-4 font-normal h-full ml-10">
+      <i
+        class="fa-solid fa-bars text-[25px] leading-[14px] text-banner-blue"
+      ></i>
+      <span class="block h-80% border-l border-banner-blue"></span>
+    </div>
+    <img src="/assets/bcc-logo.png" alt="logo" class="h-14 w-20" />
+  </div>
+  <!-- right block -->
+   @if(currentRoute !== '/authentication' ){
+    <div class="w-3/4 h-full flex items-center justify-end gap-10">
+      <div class="flex flex-col items-center justify-center text-banner-blue font-lato">
+        <p class="text-[15px] leading-[20px]">Bienvenue M. Dominique THOROUM</p>
+        <p class="text-[12px] leading-[20px] text-banner-blue font-bold italic">ADMINISTRATEUR</p>
+      </div>
+
+      <button
+        class="w-auto h-[20px] mr-12 flex items-center uppercase bg-banner-blue text-white py-4 px-6 rounded font-bold text-[14px]
+        leading-[16px] shadow-md transform scale-100 hover:scale-95 group transition duration-200 ease-in-out"
+      >
+        <i class="fa-solid fa-user pr-3 transform scale-100 group-hover:scale-[.7] transition duration-200 ease-in-out"></i>
+        Se déconnecter
+      </button>
+    </div>
+   }
+
+</header>
