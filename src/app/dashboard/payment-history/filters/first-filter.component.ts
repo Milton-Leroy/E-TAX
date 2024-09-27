@@ -35,11 +35,11 @@ import { Component } from '@angular/core';
         <li
           class="px-4 pt-0.5 hover:bg-dashbody"
           [ngClass]="{
-            'bg-banner-blue text-white': selectedFilter === 'Toutes les Statuts'
+            'bg-banner-blue text-white': selectedFilter === 'Toutes'
           }"
-          (click)="selectFilter('Toutes les Statuts')"
+          (click)="selectFilter('Toutes')"
         >
-          Toutes les Statuts
+          Toutes
         </li>
 
         <li
